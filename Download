@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Manager Download</title>
+</head>
+<body>
+
+<h1>Key Manager</h1>
+
+<!-- Button to trigger the download -->
+<button onclick="downloadKeyManagerWindow()">Download (window)</button>
+<button onclick="downloadKeyManagerLinux()">Download (Linux)</button>
+
+<h2>Once it gets download follow below steps</h2>
+<ol>
+    <li>Unzip the file</li>
+    <li>Sign up with userId and Master Password
+        <ul>
+            <li>Master Password can not be reset once set</li>
+            <li>Once you successfully, you will see one .json file with user name</li>
+            <li>This will have your secrets in encypted form</li>
+        </ul>
+    </li>
+    <li>Enjoy!!</li>
+</ol>
+<script>
+    // Function to generate and trigger the download link
+    function downloadKeyManagerWindow() {
+        var fileId = '13MsDXg7lCp0t6auydlV-sBL_2e_mfUpB'
+        var fileName = 'key_manager_window.zip'
+        downloadKeyManager(fileId,fileName)
+    }
+    function downloadKeyManagerLinux() {
+        var fileName = 'key_manager.zip'
+        var fileId = '1o_TQlRsnpgOq9B2hQYz1oZUn2FB8py9N';
+        downloadKeyManager(fileId,fileName)
+    }
+    function downloadKeyManager(fileId,fileName) {
+        var downloadLink = 'https://drive.google.com/uc?id=' + fileId;
+
+        // Create a hidden anchor element and set its attributes
+        var anchor = document.createElement('a');
+        anchor.href = downloadLink;
+        anchor.target = '_blank';
+        anchor.download = fileName;
+
+        // Append the anchor element to the document
+        document.body.appendChild(anchor);
+
+        // Trigger a click event on the anchor element to start the download
+        anchor.click();
+
+        // Remove the anchor element from the document
+        document.body.removeChild(anchor);
+    }
+    
+</script>
+
+</body>
+</html>
